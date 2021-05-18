@@ -1,0 +1,28 @@
+{% extends 'opensource/base.html' %}
+{% block title_block%}
+<h1>All Students</h1>
+<a href="new">Add New Student</a>
+{% endblock %}
+{% block main_block%}
+<table class="table">
+    <th>first name</th>
+    <th>last name</th>
+    <th>age</th>
+    <th>track</th>
+    <th>graduated</th>
+    <th>Actions</th>
+    {% for st in students %}
+    <tr>
+        <td> <a href="student/{{st.id}}">{{st.fname}} </a></td>
+        <td>{{st.lname}}</td>
+        <td>{{st.age}}</td>
+        <td>{{st.student_track}}</td>
+        <td>{{st.is_graduated}}</td>
+        <td>
+            <a href="edit/{{ st.id }}" class="btn btn-primary">Edit</a>
+            <a href="delete/{{ st.id }}" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
